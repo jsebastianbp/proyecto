@@ -1,0 +1,22 @@
+CREATE DATABASE formulario
+USE formulario;
+
+CREATE TABLE `formulario`.`areas` ( `id` INT(11) NULL , `nombre` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`));
+INSERT INTO `areas` (`id`, `nombre`) VALUES ('1', 'Dirección')
+
+
+
+
+CREATE TABLE `formulario`.`empleados` ( `id` INT(11) NOT NULL , `nombre` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `sexo` CHAR(1) NOT NULL , `area_id` INT(11) NOT NULL , `boletin` INT(11) NOT NULL , `descripcion` TEXT NOT NULL , PRIMARY KEY (`id`));
+
+INSERT INTO `empleados` (`id`, `nombre`, `email`, `sexo`, `area_id`, `boletin`, `descripcion`) VALUES ('14256879', 'Andres David Castro Torres', 'acastro@gmail.com', 'M', '1', '0', 'Gerente general');
+
+
+
+CREATE TABLE `formulario`.`empleado_rol` ( `empleado_id` INT(11) NOT NULL , `rol_id` INT(11) NOT NULL );
+INSERT INTO `empleado_rol` (`empleado_id`, `rol_id`) VALUES ('14256879', '1');
+
+
+
+CREATE TABLE `formulario`.`roles` ( `id` INT(11) NOT NULL , `nombre` VARCHAR(255) NOT NULL , UNIQUE (`id`));
+INSERT INTO `roles` (`id`, `nombre`) VALUES ('1', 'Gerente general');
